@@ -3,8 +3,34 @@
 <html>
 
 <head>
+	<meta charset="UTF-8" />
 	<title>Marcel Setó ENTI Projects</title>
 	<link rel="stylesheet" href="style.css" />
+	<script>
+		let contador = 10;
+		
+
+		function cuenta () {
+			contador--;
+			if (contador < 1){
+				document.getElementById("contador").innerHTML = "FIN DEL TIEMPO";
+				clearInterval(contador_interval);
+			}
+			else{
+				document.getElementById("contador").innerHTML = contador;
+			}
+		}
+		let contador_interval;
+		function start_contador (){
+			contador_interval =	setInterval(cuenta, 1000);
+		}
+	
+		function cambia () {
+				document.getElementById("boton_color").style.backgroundColor = "black";
+				document.getElementById("boton_color").style.color = "white";
+		}
+
+	</script>
 </head>
 
 <body>
@@ -23,7 +49,10 @@
 		</ul>
 	</nav>
 	<main>
-	<h2>¿Quien soy?</h2>
+	<h2>Tuticolori</h2>
+	<p><input type="button" id="boton_color" value="Click" onClick="cambia();"/></p>
+	<p id="contador">0</p>
+	<p><input type="button" id="inicia_contador" onClick="start_contador();" value="Inicia el contador" /></p>
 	</main>
 
 	<footer>
